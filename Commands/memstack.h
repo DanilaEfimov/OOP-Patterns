@@ -1,3 +1,6 @@
+// file memstack.h
+// VM stack model
+
 #pragma once
 
 #include <cstddef>
@@ -13,12 +16,13 @@ size_t maxSize;
 
 public:
 
-// prime constructor
+// @param max_size : size_t - max stack size
 explicit Stack(size_t max_size) 
 	: maxSize(max_size), mem()
 {}
 
-// push value to the top of a stask
+// @param val : value_t - value to push
+// @throws std::runtime_error
 void push(value_t val) {
 	if(this->size() >= this->maxSize)
 		throw std::runtime_error("Stack::push::stack overflow");	
@@ -26,7 +30,8 @@ void push(value_t val) {
 	this->mem.push(val);
 }
 
-// erase single value from the top of a stack
+// @returns value_t : top value if it's exists
+// @throws std::runtime_error
 value_t pop() {
 	if(this->empty())
 		throw std::runtime_error("Stack::pop::stack underflow");
@@ -34,17 +39,17 @@ value_t pop() {
 	return this->mem.pop();
 }
 
-// check of an emptyness
+// @returns bool : true if stack is empty, false otherwise
 bool empty() const noexcept {
 	return this->mem.empty();
 }
 
-// different between max size and actual
+// @returns size_t : different between max and actual size
 size_t remains() const noexcept {
 	return this->maxSize - this->size();
 }
 
-// actual size of a stack
+// @returns size_t : actual size of a stack
 size_t size() const noexcept {
 	return this->mem.size();
 }
