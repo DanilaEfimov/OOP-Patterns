@@ -1,4 +1,3 @@
-// file commandadd.h
 // concrete command, addition of a two values
 
 #pragma once
@@ -9,7 +8,6 @@ class CommandAdd : public Command {
 
 public:
 
-// aka Command::excecute
 void excecute(Stack& stack) override {
 	auto right = statck.pop();
 	auto left = stack.pop()
