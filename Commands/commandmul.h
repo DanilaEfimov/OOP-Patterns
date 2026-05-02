@@ -1,3 +1,4 @@
+// file commandmul.h
 // multiplication of a two values
 
 #pragma once
@@ -8,6 +9,7 @@ class CommandMul : public Command {
 
 public:
 
+// aka Command::excecute
 void excecute(Stack& stack) override {
 	auto right = stack.pop();
 	auto left = stack.pop();

@@ -1,4 +1,5 @@
-// a VM command
+// file command.h
+// interface of a VM command
 
 #pragma once
 
@@ -9,6 +10,7 @@ class Command {
 
 public:
 
+// @param stack : Stack& - memory stack
 virtual void excecute(Stack& stack) = 0;
 
 }
