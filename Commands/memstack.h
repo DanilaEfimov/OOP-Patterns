@@ -21,7 +21,7 @@ explicit Stack(size_t max_size)
 // push value to the top of a stask
 void push(value_t val) {
 	if(this->size() >= this->maxSize)
-		throw std::runtime_error("Stack::push::stack overflow");	
+		throw std::runtime_error("stack overflow");	
 
 	this->mem.push(val);
 }
@@ -29,7 +29,7 @@ void push(value_t val) {
 // erase single value from the top of a stack
 value_t pop() {
 	if(this->empty())
-		throw std::runtime_error("Stack::pop::stack underflow");
+		throw std::runtime_error("stack underflow");
 
 	return this->mem.pop();
 }

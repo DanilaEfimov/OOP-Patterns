@@ -1,4 +1,4 @@
-// concrete command, multiplication of a two values
+// multiplication of a two values
 
 #pragma once
 

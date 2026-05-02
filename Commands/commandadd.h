@@ -1,4 +1,4 @@
-// concrete command, addition of a two values
+// addition of a two values
 
 #pragma once
 

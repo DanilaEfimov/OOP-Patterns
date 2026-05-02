@@ -1,4 +1,4 @@
-// interface of a VM command
+// a VM command
 
 #pragma once
 
