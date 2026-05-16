@@ -8,7 +8,7 @@ static constexpr double EPS = 1e-12;
 double Point2P::normalizePhi(double phi) noexcept
 {
     phi = std::abs(phi);
-    while ((phi - 2 * std::numbers::pi) < EPS)
+    while (phi >= 2 * std::numbers::pi)
         phi -= 2 * std::numbers::pi;
     return phi;
 }
@@ -18,8 +18,9 @@ double Point2P::normalizeRad(double rad) noexcept
     return std::abs(rad);
 }
 
-Point2P::Point2P(double ran, double phi)
-    : rad(Point2P::normalizeRad(rad)), phi(Point2P::normalizePhi(rad))
+Point2P::Point2P(double rad, double phi)
+    : rad(Point2P::normalizeRad(rad)), 
+      phi(Point2P::normalizePhi(phi))
 {}
 
 double Point2P::getRad() const noexcept
@@ -44,7 +45,7 @@ void Point2P::setPhi(double phi) noexcept
 
 std::ostream& Point2P::operator<<(std::ostream& out) const
 {
-    out << "Point2P(" << this->rad << ", " << this->phi << ")" << std::endl;
+    return out << "Point2P(" << this->rad << ", " << this->phi << ")" << std::endl;
 }
 
 double Point2P::distance(const Point2P& first, const Point2P& second) noexcept
